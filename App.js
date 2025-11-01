@@ -14,6 +14,8 @@ const TwitchIcon = require('./assets/twitch.png');
 const TwitterIcon = require('./assets/twitter.png');
 const WhatsappIcon = require('./assets/whatsapp.png');
 const LinkedinIcon = require('./assets/linkedin.png');
+const KwaiIcon = require('./assets/kwai.png');
+const PinterestIcon = require('./assets/Pinterest.png');
 
 const platforms = [
   { 
@@ -29,7 +31,7 @@ const platforms = [
     id: 2,
     name: 'Whatsapp', 
     url: 'https://web.whatsapp.com/',
-    appUrl: 'whatsapp://send?text=',
+    appUrl: 'whatsapp://send?phone=',
     description: 'Bate papos', 
     icon: WhatsappIcon,
     color: '#25D366' 
@@ -43,13 +45,13 @@ const platforms = [
     icon: SpotifyIcon, 
     color: '#1DB954' 
   },
-  { 
+  {
     id: 4,
     name: 'Facebook',
-    url: 'https://www.facebook.com.br', 
-    appUrl: 'fb://page',
+    url: 'https://www.facebook.com',
+    appUrl: 'fb://facewebmodal/f?href=https://www.facebook.com', 
     description: 'Entretenimento no Brasil e no Mundo',
-    icon: FacebookIcon, 
+    icon: FacebookIcon,
     color: '#1877F2'
   },
   { 
@@ -122,6 +124,24 @@ const platforms = [
     icon: JooxIcon,
     color: '#FF5F5F'
   },
+  { 
+    id: 13,
+    name: 'Kwai',
+    url: 'https://www.kwai.com/',
+    appUrl: 'kwai://home',
+    description: 'Lives, música e podcasts', 
+    icon: KwaiIcon, 
+    color: '#6c8'
+  },
+  { 
+    id: 14,
+    name: 'Pinterest',
+    url: 'https://br.pinterest.com/business/hub/',
+    appUrl: 'pinterest://',
+    description: 'Imagens e Vídeos, conhecidos como "Pins"', 
+    icon: PinterestIcon, 
+    color: '#6c6759'
+  },
 ];
 
 export default function App() {
@@ -152,10 +172,11 @@ export default function App() {
         let appUrlToOpen = selectedPlatform.appUrl;
         
         if (selectedPlatform.name === 'Whatsapp') {
-          appUrlToOpen = 'whatsapp://send?text=Olá'; // URL específico para WhatsApp
+          appUrlToOpen = 'whatsapp://send?text=Ola'; // URL específico para WhatsApp
         } else if (selectedPlatform.name === 'Facebook') {
-          appUrlToOpen = 'fb://page'; // URL específico para Facebook
+          appUrlToOpen = 'fb://facewebmodal/f?href=https://www.facebook.com'; // abre a home ou uma página
         }
+        
         
         const canOpen = await Linking.canOpenURL(appUrlToOpen);  
         if (canOpen) {

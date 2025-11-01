@@ -2,7 +2,7 @@
   "expo": {
     "name": "MultiConnect",
     "slug": "multiconnect",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,19 +15,54 @@
     },
     "android": {
       "package": "com.mauricio2025.multiconnect",
-      "versionCode": 1,
+      "versionCode": 2,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": ["BROWSABLE", "DEFAULT"],
+          "data": [
+            { "scheme": "https" },
+            { "scheme": "http" },
+            { "scheme": "instagram" },
+            { "scheme": "whatsapp" },
+            { "scheme": "spotify" },
+            { "scheme": "fb" },
+            { "scheme": "vnd.youtube" },
+            { "scheme": "tiktok" },
+            { "scheme": "tg" },
+            { "scheme": "linkedin" },
+            { "scheme": "twitch" },
+            { "scheme": "twitter" },
+            { "scheme": "kwai" },
+            { "scheme": "pinterest" }
+          ]
+        }
+      ]
     },
     "extra": {
       "eas": {
         "projectId": "e2453e55-725a-4a96-92b7-602fb9f87317"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "minSdkVersion": 24,
+            "enable16kPageSupport": true
+          }
+        }
+      ]
+    ]
+  },
+  "web": {
+    "favicon": "./assets/favicon.png"
   }
 }
